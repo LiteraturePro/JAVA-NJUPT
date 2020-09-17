@@ -37,9 +37,7 @@ JAVA语言程序设计基础 作业+实验
 ### 🍉客户端架构
 
 
-![](https://pcdn.wxiou.cn//20200917183029.png)
-<center>**APP架构**</center>
-
+![](https://pcdn.wxiou.cn//20200917183029.png)<p align="center">APP架构</p>
 
 ### 🕙开发时间线
 * **2020-09** 完成架构图设计、完成服务端微信推送初始化
