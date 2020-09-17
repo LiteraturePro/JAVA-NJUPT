@@ -36,9 +36,9 @@ JAVA语言程序设计基础 作业+实验
 
 ### 🍉客户端架构
 
-#### APP架构
-![](https://pcdn.wxiou.cn//20200917183029.png)
 
+![](https://pcdn.wxiou.cn//20200917183029.png)
+<center>**APP架构**</center>
 
 
 ### 🕙开发时间线
