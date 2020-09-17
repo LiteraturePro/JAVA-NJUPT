@@ -15,10 +15,10 @@ JAVA语言程序设计基础 作业+实验
 * **阅读开发文档的能力**
 
 ##### 工具
-* **AWS Lambda**
+* **Tencent Severless**
 * **微信公众号**
 * **Android Studio**
-* **Amazon Relational Database Service(RDS)**
+* **Tencent Relational Database Service(RDS)**
 
 
 
