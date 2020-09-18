@@ -37,6 +37,19 @@ JAVA语言程序设计基础 作业+实验
 | 类型 | int |int|int|int|int|char|int|
 |示例|2020|09|17|08|15|提交作业|0|
 
+```
+create table tasks (
+year INT(4) NOT NULL, 
+month INT(2) NOT NULL, 
+day INT(2) NOT NULL,
+hour INT(2) NOT NULL,
+minute INT(2) NOT NULL,
+text VARCHAR(255) NOT NULL,
+did INT(2) NOT NULL);
+```
+
+
+
 * success 日志表
 
 | 字段名 | time |text|
