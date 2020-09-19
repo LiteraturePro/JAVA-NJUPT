@@ -32,10 +32,10 @@ JAVA语言程序设计基础 作业+实验
 
 * task表
 
-|字段名| year|month|day|hour|minute|text|did|
-| ----- | ----- |----- |----- |----- |----- |----- |----- |
-| 类型 | int |int|int|int|int|char|int|
-|示例|2020|09|17|08|15|提交作业|0|
+|字段名|ID| year|month|day|hour|minute|text|did|
+| ----- | ----- | ----- |----- |----- |----- |----- |----- |----- |
+| 类型 |char|char |char|char|char|char|char|int|
+|示例|483f09cafa3611ea928300163e2c040a|2020|09|17|08|15|提交作业|0|
 
 ```
 CREATE TABLE tasks (
