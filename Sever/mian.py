@@ -127,7 +127,7 @@ def task_dispatch(data):
     #scheduler.add_job(func=aps_pause, args=('一次性任务,停止循环任务',), next_run_time=datetime.datetime.now() + datetime.timedelta(seconds=12))
     
     # 将调度任务写入内存，用于后台执行
-    scheduler.add_job(func=text_push, args=(text,), trigger='date', run_date=time_data)
+    scheduler.add_job(func=text_push, args=(data,), trigger='date', run_date=time_data)
     try:
         print(scheduler.get_jobs())
         # 调度开始
@@ -139,14 +139,44 @@ def task_dispatch(data):
 
 
 def Data_dispose(datalist):
-    
+
+    # 处理Severless中系统时间比实际时间少8个小时
+    if time.localtime().tm_hour <= 16:
+        print(time.localtime().tm_hour)
+        time_hour = time.localtime().tm_hour+8
+    elif time.localtime().tm_hour == 17:
+        print(time.localtime().tm_hour)
+        time_hour = 1
+    elif time.localtime().tm_hour == 18:
+        print(time.localtime().tm_hour)
+        time_hour = 2
+    elif time.localtime().tm_hour == 19:
+        print(time.localtime().tm_hour)
+        time_hour = 3
+    elif time.localtime().tm_hour == 20:
+        print(time.localtime().tm_hour)
+        time_hour = 4
+    elif time.localtime().tm_hour == 21:
+        print(time.localtime().tm_hour)
+        time_hour = 5
+    elif time.localtime().tm_hour == 22:
+        print(time.localtime().tm_hour)
+        time_hour = 6
+    elif time.localtime().tm_hour == 23:
+        print(time.localtime().tm_hour)
+        time_hour = 7
+    elif time.localtime().tm_hour == 24:
+        print(time.localtime().tm_hour)
+        time_hour = 8
+    else :
+        print("假的吧，还有这事?")
+
+
     # 格式化时间戳为本地的时间
     time_year = time.localtime().tm_year
     time_month = time.localtime().tm_mon
     time_day = time.localtime().tm_mday
-    time_hour = time.localtime().tm_hour
     time_min = time.localtime().tm_min
-    
     print(time_year,time_month,time_day,time_hour,time_min)
     
     final_list = []
@@ -170,7 +200,7 @@ def Data_dispose(datalist):
 
 
 
-def text_push(text):
+def text_push(data):
     """消息推送.
     完成消息队列中定时任务的消息推送.
     
@@ -181,11 +211,12 @@ def text_push(text):
     Raises:
         IOError: None.
     """ 
+    text = data[6]
     time_year = time.localtime().tm_year
-    time_month = time.localtime().tm_mon
-    time_day = time.localtime().tm_mday
-    time_hour = time.localtime().tm_hour
-    time_min = time.localtime().tm_min
+    time_month = data[2]
+    time_day = data[3]
+    time_hour = data[4]
+    time_min = data[5]
     
     # 构造消息格式
     qq_text="     【今日提醒任务】     \n"+"🕙:    "+str(time_year)+"-"+str(time_month)+"-"+str(time_day)+" "+str(time_hour)+":"+str(time_min)+":00"+"\n"+"🍄:    "+text+"\n"
@@ -197,10 +228,10 @@ def text_push(text):
     
     """QQ号消息推送""" 
     cpurl = 'https://push.xuthus.cc/send/'+spkey    #发送方式，我用的send
-    #requests.posqq_t(cpurl,qq_text.encode('utf-8'))         #把天气数据转换成UTF-8格式，不然要报错。
+    requests.post(cpurl,qq_text.encode('utf-8'))         #把天气数据转换成UTF-8格式，不然要报错。
     
     # 关闭调度器
-    #scheduler.shutdown(wait=False)
+    scheduler.shutdown(wait=False)
     
     
     
